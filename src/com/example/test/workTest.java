@@ -41,8 +41,8 @@ public class workTest {
 	private UserAction uaction;
 	@Test
 	public void testAddUser(){
-		service.adduser(new User("aa", "bb", "448267@qq.com"));
-		
+		//service.adduser(new User("aa", "bb", "448267@qq.com"));
+		System.out.println(aaction);
 	}
 	@Test
 	public void testFindUser(){
