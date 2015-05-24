@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.serve.static.browserCache" value="false"/>
+	 <constant name="struts.configuration.xmlreload" value="true"/>
+	<package name="manager" namespace="/manager" extends="struts-default">
+
+		<global-results>
+			<result name="error">/Message/error.jsp</result>
+			<result name="message">/Message/message2.jsp</result>
+		</global-results>
+
+		<!-- <global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings> -->
+
+		<action name="index">
+			<result>/manager/admin.jsp</result>
+		</action>
+		
+		<action name="showall" class="productAction" method="showall">
+			<result name="showall">/manager/showall.jsp</result>
+		</action>
+		
+		<action name="showallCP" class="cproductionsAction" method="showallCP">
+			<result name="showall">/manager/showall.jsp</result>
+		</action>
+		
+		<action name="addCProduct" class="cproductionsAction" method="addCProduct">
+			<result name="showall">/manager/showall.jsp</result>
+		</action>
+		<action name="buyProduct" class="productAction" method="buyProduct">
+			<result name="buyMessage">/Message/buyMessage.jsp</result>
+		</action>
+		
+		<action name="deleteUI" class="cproductionsAction" method="deleteUI">
+			<result name="delete">/manager/deleteUI.jsp</result>
+		</action>
+		
+		<action name="deleteProduct" class="cproductionsAction" method="deleteProduct">
+			<result name="delete">/manager/deleteUI.jsp</result>
+		</action>
+		<action name="updateUI" class="productAction" method="updateUI">
+			<result name="updateUI">/manager/updateProduct.jsp</result>
+		</action>
+		
+		<action name="updatePro" class="cproductionsAction" method="updatePro">
+			<result name="showall">/manager/showall.jsp</result>
+		</action>
+		
+		<action name="adminValidate" class="adminAction" method="adminValidate">
+			<result name="index">/manager/index.jsp</result>
+		</action>
+	</package>
+
+	<!-- Add packages here -->
+	<package name="front" namespace="/front" extends="struts-default">
+		
+		<global-results>
+			<result name="error">/Message/error.jsp</result>
+			<result name="message">/Message/message.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+		
+		
+		<action name="index">
+			<result>/front/index.jsp</result>
+		</action>
+		<action name="load" class="userAction" method="load" >
+		</action>
+		
+		<action name="register" class="userAction" method="register" >
+		</action>
+		
+		<action name="unload" class="userAction" method="unload" >
+			
+		</action>
+		
+	</package>
+
+</struts>

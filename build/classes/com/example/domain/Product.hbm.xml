@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-5-17 15:22:08 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.example.domain.Product" table="PRODUCTS">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="processor" type="java.lang.String">
+            <column name="PROCESSOR" />
+        </property>
+        <property name="net" type="java.lang.String">
+            <column name="NET" />
+        </property>
+        <property name="size" type="java.lang.String">
+            <column name="SIZE" />
+        </property>
+        <property name="rom" type="java.lang.String">
+            <column name="ROM" />
+        </property>
+        <property name="camera" type="java.lang.String">
+            <column name="CAMERA" />
+        </property>
+        <property name="simcart" type="java.lang.String">
+            <column name="SIMCART" />
+        </property>
+        <property name="price" type="java.lang.String">
+            <column name="PRICE" />
+        </property>
+       
+        <many-to-one name="user" class="com.example.domain.User">
+            <column name="USER_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
