@@ -36,5 +36,12 @@
         <many-to-one name="user" class="com.example.domain.User">
             <column name="USER_ID" />
         </many-to-one>
+        
+        <property name="number" type="int">
+        	<column name="NUMBER"></column>
+        </property>
+        <property name="totalPrice" type="double">
+        	<column name="TOTAL_PRICE"></column>
+        </property>
     </class>
 </hibernate-mapping>

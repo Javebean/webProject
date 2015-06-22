@@ -33,16 +33,11 @@ public class UserAction {
 
 	public String register(){
 		User use = service.find(user.getUsername());
-		System.out.println(user.getUsername()+"---");
 		if(use!=null){
 			message="用户名已存在";
 			return "message";
 		}
-		User u = new User();
-		u.setUsername(user.getUsername());
-		u.setPassword(user.getPassword());
-		u.setEmail(user.getEmail());
-		service.adduser(u);
+		service.adduser(user);
 		message="注册成功";
 		return "message";
 	}
@@ -50,13 +45,12 @@ public class UserAction {
 	public String load(){
 		User user2 = service.find(user.getUsername(), user.getPassword());
 		if(user2==null){
-			message="用户名或密码不正确";
-			return "message";
+			ActionContext.getContext().put("tipMessage", "用户名或密码不正确");
+			return "loadFail";
 		}
 		ActionContext.getContext().getSession().put("user", user2);
-		
-		message="登录成功";
-		return "message";
+		ActionContext.getContext().put("tipMessage", "登陆成功");
+		return "loadSuc";
 	}
 	
 	public String unload(){

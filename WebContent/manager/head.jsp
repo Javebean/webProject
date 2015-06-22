@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>XX手机网站后台管理系统</title>
 </head>
 <body style="text-align:center">
 	<h1>XX手机网站后台管理系统</h1>

@@ -19,6 +19,7 @@ import com.example.domain.Cproductions;
 import com.example.domain.Product;
 import com.example.domain.User;
 import com.example.domain.admin;
+import com.opensymphony.xwork2.ActionContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/application.xml")
@@ -42,7 +43,6 @@ public class workTest {
 	@Test
 	public void testAddUser(){
 		//service.adduser(new User("aa", "bb", "448267@qq.com"));
-		System.out.println(aaction);
 	}
 	@Test
 	public void testFindUser(){
@@ -59,14 +59,24 @@ public class workTest {
 		User u = new User();
 		u.setId(1);
 		
-		Product p = new Product("a", "b", "c", "d", "z", "z", "z", "d");
-		p.setUser(u);//设置这个产品关联的ID为1的User
-		service.add(p);  
+		Product p = new Product();
+		p.setName("a");
+		p.setProcessor("a");
+		p.setNet("a");
+		p.setSize("a");
+		p.setRom("a");
+		p.setCamera("a");
+		p.setSimcart("a");
+		p.setPrice("a");
+		p.setUser(u);
+		p.setNumber(1);
+		p.setTotalPrice(100.0);
+		pdao.add(p);
 	}
 	
 	@Test
 	public void testDelProduction(){
-		service.del(6);
+		service.del("6",1);
 	}
 	@Test
 	public void testUpdateProduction(){
@@ -125,4 +135,9 @@ public class workTest {
 	public void testDelectCP(){
 		service.deleteCP(1);
 	}
+	@Test
+	public void testUpdateCart(){
+		pdao.updateCart(135.0,"nubia Z7",2);
+	}
+	
 }

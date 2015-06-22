@@ -1,21 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@taglib uri="/struts-tags" prefix="s"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>XX手机首页</title>
 <script type="text/javascript">
-	function user(){
 		var us = "${session.user.username}";
+	function user(){
+		if(us==""){
+			alert("您还没有登录，请登录后再来");
+			return false;
+		}else{
+			alert("成功加入购物车！");
+			return true;
+		}
+		
+	}
+	function getShoppingCar(){
 		if(us==""){
 			alert("您还没有登录，请登录后再来");
 			return false;
 		}
+		return true;
 	}
 
 </script>
+<script type="text/javascript">
+  var msg="${requestScope.tipMessage}";
+  if(msg!=""){
+     alert(msg);
+  }
+</script> 
 <style type="text/css">
 div img.head
 {
@@ -94,15 +111,8 @@ div.right3{
 </head>
 <body>
 	<div id="all">
-	<s:if test="#session.user==null">
-		[<a href="${pageContext.request.contextPath}/front/load.jsp">亲爱的用户请登录哦~</a>]
-		[<a href="${pageContext.request.contextPath}/front/register.jsp">注册</a>]
-	</s:if>
-	<s:else>
-		欢迎您：${session.user.username }
-		[<a href="${pageContext.request.contextPath}/front/unload.action">注销</a>]
-	</s:else>
-	<a href="${pageContext.request.contextPath }/manager/showall.action" id="shoppingCart" onclick="return user()">我的购物车</a>
+		<jsp:include page="NavigationBar.jsp"></jsp:include>
+		
 		<div id="head">
 			<img class="head" alt="head大图" src="${pageContext.request.contextPath}/image/head.jpg">
 		</div>
@@ -112,7 +122,7 @@ div.right3{
 		
 		<div id="body">
 				<div class="left1" >
-				<form action="${pageContext.request.contextPath }/manager/buyProduct.action" method="post" onsubmit="return user()">
+				<form action="${pageContext.request.contextPath }/front/addCart" method="post" onsubmit="return user()">
 					<table>
 						<tr>
 							<td>
@@ -161,12 +171,12 @@ div.right3{
 						</tr>
 						<tr>
 							<td>
-								<input type="text" name="product.price" value="￥3456.00" readonly="readonly">
+								￥<input type="text" name="product.price" value="3456.00" readonly="readonly">
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<input type="submit"  value="购买" class="buy">
+								<input type="submit"  value="加入购物车" class="buy">
 							</td>
 						</tr>
 					</table>
@@ -176,7 +186,7 @@ div.right3{
 				<br/>
 				<div class="right2"></div>
 				<div class="left2">
-					<form action="${pageContext.request.contextPath }/manager/buyProduct" method="post" onsubmit="return user()">
+					<form action="${pageContext.request.contextPath }/front/addCart" method="post" onsubmit="return user()">
 					<table>
 						<tr>
 							<td>
@@ -225,12 +235,12 @@ div.right3{
 						</tr>
 						<tr>
 							<td>
-								<input type="text" name="product.price" value="￥1999.00" readonly="readonly">
+								￥<input type="text" name="product.price" value="1999.00" readonly="readonly">
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<input class="buy" type="submit"  value="购买" >
+								<input class="buy" type="submit"  value="加入购物车" >
 							</td>
 						</tr>
 					</table>
@@ -238,7 +248,7 @@ div.right3{
 				</div> 
 				<br/>
 				<div class="left3">
-					<form action="${pageContext.request.contextPath }/manager/buyProduct" method="post" onsubmit="return user()">
+					<form action="${pageContext.request.contextPath }/front/addCart" method="post" onsubmit="return user()">
 					<table>
 						<tr>
 							<td>
@@ -287,12 +297,12 @@ div.right3{
 						</tr>
 						<tr>
 							<td>
-								<input type="text" name="product.price" value="￥1499.00" readonly="readonly">
+								￥<input type="text" name="product.price" value="1499.00" readonly="readonly">
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<input type="submit"  value="购买" class="buy">
+								<input type="submit"  value="加入购物车" class="buy">
 							</td>
 						</tr>
 					</table>

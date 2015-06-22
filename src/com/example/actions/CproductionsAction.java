@@ -40,17 +40,12 @@ public class CproductionsAction {
 	}
 	
 	public String addCProduct(){
-		Cproductions cpro = 
-				new Cproductions(cp.getName(), cp.getProcessor(), 
-						cp.getNet(), cp.getSize(), cp.getRom(), cp.getCamera(),
-						cp.getSimcart(), cp.getPrice());
-		service.addCP(cpro);
+		service.addCP(cp);
 		return showallCP();
 	}
 	
 	public String updatePro(){
-		Cproductions cpr = new Cproductions(cp.getName(), cp.getProcessor(), cp.getNet(), cp.getSize(), cp.getRom(), cp.getCamera(), cp.getSimcart(), cp.getPrice());
-		service.updateCP(cpr);
+		service.updateCP(cp);
 		return showallCP();
 	}
 	public String deleteUI(){

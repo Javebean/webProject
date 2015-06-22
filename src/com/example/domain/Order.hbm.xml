@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-5-31 14:35:42 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.example.domain.Order" table="ORDERS" >
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="location" type="java.lang.String">
+            <column name="LOCATION" />
+        </property>
+        <property name="province" type="java.lang.String">
+            <column name="PROVINCE" />
+        </property>
+        <property name="city" type="java.lang.String">
+            <column name="CITY" />
+        </property>
+        <property name="counties" type="java.lang.String">
+            <column name="COUNTIES" />
+        </property>
+        <property name="street" type="java.lang.String">
+            <column name="STREET" />
+        </property>
+        <property name="zipcode" type="java.lang.String">
+            <column name="ZIPCODE" />
+        </property>
+        <property name="addressee" type="java.lang.String">
+            <column name="ADDRESSEE" />
+        </property>
+        <property name="phoneNum" type="java.lang.String">
+            <column name="PHONENUM" />
+        </property>
+        <property name="sumPrice" type="double">
+        	<column name="SUM_PRICE"></column>
+        </property>
+        
+        <many-to-one name="sta" class="com.example.domain.Status">
+        	<column name="STA_ID"></column>
+        </many-to-one>
+        <set name="goods" table="ORDERGOODS" inverse="true">
+        	<key column="ORDER_ID"></key>
+        	<one-to-many class="com.example.domain.OrderGoods"/>
+        </set>
+        
+    </class>
+</hibernate-mapping>

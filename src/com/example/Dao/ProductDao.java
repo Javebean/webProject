@@ -30,11 +30,10 @@ public class ProductDao {
 		}
 	}
 	
-	public void del(int id) {
+	public void del(String name,int userId) {
 		try{
-			Product p = new Product();
-			p.setId(id);
-			getSession().delete(p);
+			String hql = "delete from Product p where name=? and p.user.id=?";
+			getSession().createQuery(hql).setString(0, name).setInteger(1, userId).executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();
 			throw new RuntimeException(e);
@@ -48,6 +47,27 @@ public class ProductDao {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
+	}
+	
+	public void updateCart(double singlePrice,String name,int userId){
+		try{
+			String hql = "update Product p set number=number+1,total_price=total_price+? where name=? and p.user.id=?"; 
+			getSession().createQuery(hql).setDouble(0, singlePrice).setString(1, name).setInteger(2, userId).executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public Product findbyName(String name,int userId){
+		try{
+			String hql = "from Product p where name=? and p.user.id=?";
+		return	(Product) getSession().createQuery(hql).setString(0, name).setInteger(1, userId).uniqueResult();
+		}catch(Exception e){
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		
 	}
 	
 	public List <Product> findall(int userid){

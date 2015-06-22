@@ -6,21 +6,31 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>管理员登录</title>
 <style type="text/css">
+body{
+	margin:0;
+	padding:0;
+	width:1366px;
+	height:521px;
+	padding-top:100px;
+	background-size:1366px 650px;	
+	background-image: url("${pageContext.request.contextPath}/image/AdminBG.jpg");
+}
+
 table{
-	position: absolute;
-	left:500px;
-	top:201px;
-	width:300px;
-	height: 160px;
-	text-align:center;
 	
+	margin: 0 auto;
+	width:500px;
+	height:300px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
 }
 	
 </style>
 </head>
 <body>
 	<form action="${pageContext.request.contextPath}/manager/adminValidate.action" method="post">
-		<table border="1" >
+		<table border="0" >
 			<tr>
 				<td colspan="2">管理员登录</td>
 			</tr>
@@ -41,9 +51,11 @@ table{
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
+				<td align="right">
 					<input type="reset" value="取消"/>
+				</td>
 				
+				<td >
 					<input type="submit" value="登录"/>
 				</td>
 			</tr>

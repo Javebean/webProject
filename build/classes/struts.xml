@@ -35,9 +35,6 @@
 		<action name="addCProduct" class="cproductionsAction" method="addCProduct">
 			<result name="showall">/manager/showall.jsp</result>
 		</action>
-		<action name="buyProduct" class="productAction" method="buyProduct">
-			<result name="buyMessage">/Message/buyMessage.jsp</result>
-		</action>
 		
 		<action name="deleteUI" class="cproductionsAction" method="deleteUI">
 			<result name="delete">/manager/deleteUI.jsp</result>
@@ -76,15 +73,57 @@
 		<action name="index">
 			<result>/front/index.jsp</result>
 		</action>
+		
 		<action name="load" class="userAction" method="load" >
+			<result name="loadSuc">/front/index.jsp</result>
+			<result name="loadFail">/front/load.jsp</result>
 		</action>
 		
 		<action name="register" class="userAction" method="register" >
 		</action>
 		
 		<action name="unload" class="userAction" method="unload" >
-			
 		</action>
+		
+		<!-- shoppingcart -->
+		<action name="shoppingCart" class="productAction" method="shoppingCart">
+			<result name="shoppingCart">/front/MyShoppingCart.jsp</result>
+		</action>
+		
+		<action name="operateCart" class="productAction" method="operateCart">
+			<result name="shoppingCart" type="redirect">shoppingCart.action</result>
+			<result name="goOrder">/front/Order.jsp</result>
+		</action>
+		
+		<action name="addCart" class="productAction" method="addCart">
+			<result name="addCart" type="redirect">index.action</result>
+		</action>
+		
+		<action name="submitOrder" class="orderAction" method="submitOrder">
+			<result name="submitOrderMessage">/Message/submitOrderMessage.jsp</result>
+		</action>
+	</package>
+	
+	
+<!-- orderManager -->
+	<package name="manageOrder" namespace="/manageOrder" extends="struts-default">
+		<action name="showAllOrders" class="orderAction" method="showAllOrders">
+			<result name="showAllOrders">/manager/AllOrders.jsp</result>
+		</action>
+		
+		<action name="changeStatus" class="orderAction" method="changeStatus">
+			<result name="changeStatus" type="redirect">showAllOrders.action</result>
+			<result name="notAuditedOrder" type="redirect">NotAuditedOrder.action</result>
+		</action>
+		
+		<action name="AuditedOrder" class="orderAction" method="AuditedOrder">
+			<result name="auditedOrder">/manager/auditedOrder.jsp</result>
+		</action>
+		
+		<action name="NotAuditedOrder" class="orderAction" method="NotAuditedOrder">
+			<result name="notAuditedOrder">/manager/notAuditedOrder.jsp</result>
+		</action>
+		
 		
 	</package>
 

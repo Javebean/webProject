@@ -5,7 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<style type="text/css">
+	table{
+		width: 1100px;
+	}
+</style>
+<title>查看所有商品 </title>
 </head>
 <body>
 	<table border="1">
@@ -28,7 +33,7 @@
 			<td>${li.rom}</td>	
 			<td>${li.camera}</td>
 			<td>${li.simcart}</td>
-			<td>${li.price}</td>
+			<td>￥${li.price}</td>
 			
 		</tr>
 		

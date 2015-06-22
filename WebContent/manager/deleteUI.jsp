@@ -6,6 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>删除商品页面</title>
+<style type="text/css">
+	table{
+		width: 1100px;
+	}
+	a:hover {color: #FF00FF}
+</style>
 </head>
 <body>
 		<table border="1">

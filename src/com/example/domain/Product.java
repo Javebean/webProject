@@ -1,6 +1,7 @@
 package com.example.domain;
 
 
+//	insert into products values(0,"a","a","a","a","a","a","a","a",1,5,1000);
 public class Product {
 	private int id;
 	private String name;
@@ -11,10 +12,23 @@ public class Product {
 	private String camera;
 	private String simcart;
 	private String price;
-	//	insert into products values(0,"a","a","a","a","a","a","a","a",1);
 	private User user;
+	private int number;
+	private double totalPrice;
 	
 	
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
+	}
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 	public User getUser() {
 		return user;
 	}

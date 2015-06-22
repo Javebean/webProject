@@ -4,9 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<style type="text/css">
+	frameset {
+	background-image: url("${pageContext.request.contextPath}/image/managerBG.jpg");
+	width:1366px;
+	height:621px;
+	background-size:1366px 621px;
+}
+</style>
+
+<title>XX手机网站后台管理系统</title>
 </head>
-<frameset rows="15%,*" >
+<frameset rows="15%,*">
 	<frame src="${pageContext.request.contextPath}/manager/head.jsp" noresize="noresize">
 	<frameset cols="15%,*">
 		<frame src="${pageContext.request.contextPath}/manager/left.jsp" noresize="noresize">
